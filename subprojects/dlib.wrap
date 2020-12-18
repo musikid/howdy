@@ -1,0 +1,4 @@
+[wrap-git]
+url = https://github.com/davisking/dlib.git
+revision = v19.21
+depth = 1

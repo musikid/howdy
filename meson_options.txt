@@ -1,0 +1,1 @@
+option('cuda', type: 'boolean', value: false, description: 'Enable CUDA support')

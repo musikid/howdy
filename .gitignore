@@ -111,3 +111,8 @@ debian/howdy.substvars
 debian/files
 debian/debhelper-build-stamp
 debian/howdy
+
+# Meson
+build
+subprojects/*/
+compile_commands.json
