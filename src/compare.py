@@ -15,6 +15,8 @@ import os
 import sys
 import time
 
+from evdev import UInput, ecodes as e
+
 # Start timing
 timings = {
     "st": time.time()
@@ -294,6 +296,21 @@ while True:
             # Make snapshot if enabled
             if capture_successful:
                 make_snapshot("SUCCESSFUL")
+
+            # Press enter key
+            if config.get("core", "workaround") == "input":
+                pipe_fd = int(os.getenv("PIPE_FD"))
+                pipe = os.fdopen(pipe_fd, 'w')
+                pipe.write('\255')
+
+                enter_cap = {
+                    e.EV_KEY: [e.KEY_ENTER]
+                }
+                device = UInput(enter_cap)
+                device.write(e.EV_KEY, e.KEY_ENTER, 1)
+                device.syn()
+                device.write(e.EV_KEY, e.KEY_ENTER, 0)
+                device.syn()
 
             # End peacefully
             sys.exit(0)
