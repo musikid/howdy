@@ -3,18 +3,18 @@
 ## Build
 
 ```sh
-meson setup build -Dinih:with_INIReader=true
+meson setup build
 meson compile -C build
 ```
 
 ## Install
 
 ```sh
-sudo mv build/libpam_howdy.so /lib/security/pam_howdy.so
+sudo meson install -C build
 ```
 
 Change PAM config line to:
 
 ```pam
-auth     sufficient pam_howdy.so
+auth  sufficient  pam_howdy.so
 ```
