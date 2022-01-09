@@ -2,8 +2,10 @@
 
 ## Prepare
 
-Howdy PAM module depends on `INIReader`, the package provide
-this dependency of some Distros are listed below:
+Howdy PAM module depends on `INIReader`.
+
+If you are building a distro package,
+there is a list for it below:
 
 ```
 Arch Linux - libinih
