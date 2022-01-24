@@ -298,17 +298,6 @@ while True:
             if capture_successful:
                 make_snapshot("SUCCESSFUL")
 
-            # Press enter key
-            if config.get("core", "workaround") == "input":
-                enter_cap = {
-                    e.EV_KEY: [e.KEY_ENTER]
-                }
-                device = UInput(enter_cap)
-                device.write(e.EV_KEY, e.KEY_ENTER, 1)
-                device.write(e.EV_KEY, e.KEY_ENTER, 0)
-                device.syn()
-                device.close()
-
             # End peacefully
             sys.exit(0)
 
